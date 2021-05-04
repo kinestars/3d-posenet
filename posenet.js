@@ -64,6 +64,7 @@ export default class PoseNet{
     const video = this.htmlElements.video;
     video.width = videoWidth;
     video.height = videoHeight;
+    video.playsInline = true;
 
     const mobile = this.isMobile();
     const stream = await navigator.mediaDevices.getUserMedia({

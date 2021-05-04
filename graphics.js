@@ -26,7 +26,7 @@ export default class GraphicsEngine {
      */
     initScene(){
         this.scene = new BABYLON.Scene(this.engine);
-        this.scene.clearColor = new BABYLON.Color3(0.5, 0.8, 0.5);
+        this.scene.clearColor = new BABYLON.Color4(0.4, 0.8, 0.5, 0);
         const camera = this.setCamera();
         const sphere = BABYLON.MeshBuilder.CreateSphere('', { diameter: .0001 }, this.scene);
         BABYLON.SceneLoader.ImportMesh("", `/${process.env.BPATH}/Scenes/Dude/`, "Dude.babylon", this.scene, (newMeshes, particleSystems, skeletons) => {

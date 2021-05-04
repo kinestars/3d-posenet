@@ -54,15 +54,21 @@ class App extends React.Component {
    */
   render() {
     return (
-      <div>
-        <div style={{ display: "none" }}>
+      <div style={{ position: "relative" }}>
+        <div style={{ position: "absolute", top: 0, left: 0 }}>
           <div style={{ display: this.state.loading ? "none" : "block" }}>
-            <video ref="video" id="video" playsInline />
+            <video
+              ref="video"
+              id="video"
+              playsInline
+            />
             <canvas
               ref="output"
-              width={500}
-              height={500}
-              style={{ display: this.state.webcam ? "block" : "none" }}
+              style={{
+                display: this.state.webcam ? "block" : "none",
+                width: "100vw",
+                height: "100vh",
+              }}
             />
             {!this.state.webcam && (
               <WeCamAccess askForAccess={() => this.askWebCam()} />
@@ -82,7 +88,16 @@ class App extends React.Component {
             />
           </div>
         </div>
-        <canvas ref="babylon" style={{ width: "100vw", height: "100vh" }} />
+        <canvas
+          ref="babylon"
+          style={{
+            width: "calc(100vw / 2)",
+            height: "calc(100vw / 2)",
+            position: "absolute",
+            top: 0,
+            right: 0,
+          }}
+        />
       </div>
     );
   }
